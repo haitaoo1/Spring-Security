@@ -10,7 +10,7 @@ import springboot.springsecurity.user.User;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tokens")
+@Table(name = "Token")
 public class Token {
 
     @Id
