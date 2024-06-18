@@ -16,5 +16,13 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
 
 
+application:
+  security:
+    jwt:
+      secret-key: 8ffb5d466184d35fc637102ccd6c40e7473dbca2b7025884ae7ae46b0940c45f
+      expiration: 20000 #one day
+      refresh-token:
+        expiration: 604800000 #7 days
+
 
 
