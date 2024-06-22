@@ -16,7 +16,7 @@ import springboot.springsecurity.auth.Model.RegisterRequest;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/api/auth")
 
 public class AuthenticationController {
 

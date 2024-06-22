@@ -3,7 +3,7 @@ package springboot.springsecurity.auth.demo;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/managment")
+@RequestMapping("/api/managment")
 public class ManagementController {
     @GetMapping
     public String get(){

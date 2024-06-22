@@ -33,21 +33,21 @@ public class SpringSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         return http.authorizeHttpRequests((auth) ->
-                auth.requestMatchers("api/v1/auth/**").permitAll()
+                auth.requestMatchers("api/auth/**").permitAll()
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/api/v1/managment/**").hasAnyRole(ADMIN.name(), MANAGER.name())
+                        .requestMatchers("/api/managment/**").hasAnyRole(ADMIN.name(), MANAGER.name())
 
-                        .requestMatchers(GET, "/api/v1/managment/**").hasAnyAuthority(ADMIN_READ.name(), MANAGER_READ.name())
-                        .requestMatchers(POST, "/api/v1/managment/**").hasAnyAuthority(ADMIN_CREATE.name(), MANAGER_CREATE.name())
-                        .requestMatchers(PUT, "/api/v1/managment/**").hasAnyAuthority(ADMIN_UPDATE.name(), MANAGER_UPDATE.name())
-                        .requestMatchers(DELETE, "/api/v1/managment/**").hasAnyAuthority(ADMIN_DELETE.name(), MANAGER_DELETE.name())
+                        .requestMatchers(GET, "/api/managment/**").hasAnyAuthority(ADMIN_READ.name(), MANAGER_READ.name())
+                        .requestMatchers(POST, "/api/managment/**").hasAnyAuthority(ADMIN_CREATE.name(), MANAGER_CREATE.name())
+                        .requestMatchers(PUT, "/api/managment/**").hasAnyAuthority(ADMIN_UPDATE.name(), MANAGER_UPDATE.name())
+                        .requestMatchers(DELETE, "/api/managment/**").hasAnyAuthority(ADMIN_DELETE.name(), MANAGER_DELETE.name())
 
-                        /*.requestMatchers("/api/v1/admin/**").hasAnyRole(ADMIN.name())
+                        /*.requestMatchers("/api/admin/**").hasAnyRole(ADMIN.name())
 
-                        .requestMatchers(GET, "/api/v1/admin/**").hasAuthority(ADMIN_READ.name())
-                        .requestMatchers(POST, "/api/v1/admin/**").hasAuthority(ADMIN_CREATE.name())
-                        .requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ADMIN_UPDATE.name())
-                        .requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(ADMIN_DELETE.name())*/
+                        .requestMatchers(GET, "/api/admin/**").hasAuthority(ADMIN_READ.name())
+                        .requestMatchers(POST, "/api/admin/**").hasAuthority(ADMIN_CREATE.name())
+                        .requestMatchers(PUT, "/api/admin/**").hasAuthority(ADMIN_UPDATE.name())
+                        .requestMatchers(DELETE, "/api/admin/**").hasAuthority(ADMIN_DELETE.name())*/
 
 
                         .anyRequest().authenticated())
@@ -56,7 +56,7 @@ public class SpringSecurityConfiguration {
                 .csrf(config ->config.disable())
                 .sessionManagement(magament-> magament.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .logout((logout) ->
-                        logout.logoutUrl("/api/v1/auth/logout")
+                        logout.logoutUrl("/api/auth/logout")
                                 .addLogoutHandler(logoutHandler)
                                 .logoutSuccessHandler(
                                         (request, response, authentication) ->
